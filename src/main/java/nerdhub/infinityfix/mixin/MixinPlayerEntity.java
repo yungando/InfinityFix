@@ -13,10 +13,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(PlayerEntity.class)
 public class MixinPlayerEntity {
 
-    @Inject(method = "getArrowType", at = @At(value = "FIELD", target = "Lnet/minecraft/entity/player/PlayerEntity;abilities:Lnet/minecraft/entity/player/PlayerAbilities;"), cancellable = true)
-    private void getArrowType(ItemStack weapon, CallbackInfoReturnable<ItemStack> cir) {
-        if(EnchantmentHelper.getLevel(Enchantments.INFINITY, weapon) > 0) {
-            cir.setReturnValue(new ItemStack(Items.ARROW));
-        }
+  @Inject(method = "getProjectileType", at = @At(value = "FIELD", target = "Lnet/minecraft/entity/player/PlayerEntity;abilities:Lnet/minecraft/entity/player/PlayerAbilities;"), cancellable = true)
+  private void getProjectileType(ItemStack weapon, CallbackInfoReturnable<ItemStack> cir) {
+    if (EnchantmentHelper.getEnchantments(weapon).getEnchantmentEntries().stream()
+        .anyMatch((entry) -> entry.getKey().matches(Enchantments.INFINITY::equals))) {
+      cir.setReturnValue(new ItemStack(Items.ARROW));
     }
+  }
 }

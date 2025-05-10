@@ -1,27 +1,32 @@
 {
-    "schemaVersion": 1,
-    "id": "infinityfix",
-    "name": "Infinity Fix",
-    "description": "Fixes the Infinity Enchant and also makes it work together with Mending",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Radient_Sora",
-            "contact": {
-                "homepage": "https://twitter.com/Radient_Sora"
-            }
-        },
-        {
-            "name": "UpcraftLP",
-            "contact": {
-                "homepage": "https://twitter.com/UpcraftLP"
-            }
-        }
-    ],
-    "icon": "assets/infinityfix/icon.png",
-    "side": "universal",
-    "version": "${version}",
-    "mixins": [
-        "mixins.infinityfix.common.json"
-    ]
+	"schemaVersion": 1,
+	"id": "infinityfix",
+	"name": "Infinity Fix",
+	"description": "Fixes the Infinity Enchant and also makes it work together with Mending",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Radient_Sora",
+			"contact": {
+				"homepage": "https://twitter.com/Radient_Sora"
+			}
+		},
+		{
+			"name": "UpcraftLP",
+			"contact": {
+				"homepage": "https://twitter.com/UpcraftLP"
+			}
+		}
+	],
+	"icon": "assets/infinityfix/icon.png",
+	"version": "${version}",
+	"mixins": [
+		"mixins.infinityfix.common.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.14",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
 }
